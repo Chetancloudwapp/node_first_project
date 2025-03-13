@@ -1,0 +1,15 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.cw.stayezy",
+            "sha256_cert_fingerprints": [
+                "BB:25:D1:70:65:63:8F:09:E9:37:15:BB:09:7F:77:CF:23:A7:30:0A:6F:99:1F:69:F0:B1:D0:E2:80:00:75:16",
+                "FA:B0:4E:0E:F1:74:06:0D:3C:84:EC:80:72:16:3F:69:49:57:00:B5:E9:AD:EB:F4:AF:B7:CD:A3:BC:3A:E5:7A"
+            ]
+        }
+    }
+]
