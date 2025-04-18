@@ -1,57 +1,25 @@
-const express = require('express');
+// const express = require('express') // old way to import express in javascript
+
+import express from "express"; // new way to import the express in javascript es6
 const app = express();
 
+app.set("view engine", "ejs"); // it is used as an middleware
+
+// Note :- ByDefault ejs ki html files hum views name k folder mai likhte hai and agar humne views name ka folder nahi banaya hai to koi or name ko hume define krna padta hai kuch iss tarah se
+
+// app.set("views", "./my-template"); // here my-template is our views folder name. Agar humare folder ka name views nahi hai kuch or hai too use define krna padega for ejs, here views represent the key name.
+
+app.get("/", (req, res) => {
+  res.send("home page");
+});
+
+app.get("/about-us", (req, res) => {
+  res.render("about", {
+    title: "About page from index page",
+    message: "Welcome to Ejs!",
+  });
+});
+
 app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
-
-// app.get('/', (req, res) => {
-    // ------ send method with object ------- //
-
-    // res.send(
-    //     {
-    //         name:"chetan",
-    //         age:27,
-    //         city:"jaipur"
-    //     }
-    // );  // send object kr rahe hain but hume response milega json format mai
-
-    // ------ send method with array ------- //
-
-    // res.send(
-    //     ['apple', 'banana', 'cherry', 'dates'] // it returns an array
-    // );
-
-    // ------ json method ------- //
-
-    // res.json(
-    //     {
-    //         name:"chetan",
-    //         age:27,
-    //         city:"jaipur"
-    //     }
-    // )
-
-    // ------ Array with object Method ----- //
-//     const users = [
-//         {id:1, name:"chetan"},
-//         {id:2, name:"Salman"},
-//     ]
-
-//     res.json(users);
-// });
-
-// ------ Json with padding method ------- //
-app.get('/', (req, res) => {
-    res.jsonp({name:"chetan", age:27, city:"jaipur"}); // yhh method hume second parameter mai ek callback function bhi return krta hai i.e agar humne route mai koi bhi parameter pass kiya hai toh vo callback function mai aajayega
-}); 
-
-// ------ Redirect Method ------- //
-app.get('/about', (req, res) => {
-    res.redirect(301, 'https://www.google.com'); // here 301 is a status code for permanent redirecting the page
-    // res.redirect('/user');
-});
-
-app.get('/user', (req, res) => {
-    res.send("Hello from user page");
+  console.log("Server started successfully on port : 3000");
 });
